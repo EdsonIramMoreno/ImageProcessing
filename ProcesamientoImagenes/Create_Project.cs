@@ -85,10 +85,9 @@ namespace ProcesamientoImagenes
             var im = ImageManager.getInstance();
             var opDialog = new OpenFileDialog();
             if (im.isPhoto())
-                opDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG;";
+                opDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.JPEG)|*.BMP;*.JPG;*.PNG;*.JPEG;";
             else
-                opDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG;";
-            //opDialog.Filter = "Video Files(*.MP4;*.WMV;*.AVI)|*.MP4;*.WMV;*.AVI;";
+                opDialog.Filter = "Video Files(*.MP4;*.WMV;*.AVI)|*.MP4;*.WMV;*.AVI;";
 
             if (opDialog.ShowDialog() == DialogResult.OK)
             {

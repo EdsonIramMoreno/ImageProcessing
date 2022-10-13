@@ -3,6 +3,9 @@ using System.Drawing;
 using static System.Net.Mime.MediaTypeNames;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace ProcesamientoImagenes
 {
@@ -43,5 +46,19 @@ namespace ProcesamientoImagenes
             resImg.UnlockBits(resData);
             return resImg;
         }
+
+        public static void exportImage(System.Drawing.Image img)
+        {
+            var im = ImageManager.getInstance();
+            string workingDirectory = Environment.CurrentDirectory;
+            string imageDirectory = Directory.GetParent(workingDirectory).Parent.FullName + "\\Files\\Exported\\";
+            img.Save(imageDirectory + im.getImageName() + ".jpeg", ImageFormat.Jpeg);
+            var result = MessageBox.Show("The image has been exported, do you want to open the folder it's been saved?.", "Exported Succesfully", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(result == DialogResult.Yes)
+            {
+                Process.Start(imageDirectory);
+            }
+        }
+
     }
 }
