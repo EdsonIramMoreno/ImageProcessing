@@ -44,9 +44,10 @@
             this.lbl.AutoSize = true;
             this.lbl.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl.ForeColor = System.Drawing.Color.White;
-            this.lbl.Location = new System.Drawing.Point(443, 814);
+            this.lbl.Location = new System.Drawing.Point(332, 653);
+            this.lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl.Name = "lbl";
-            this.lbl.Size = new System.Drawing.Size(205, 33);
+            this.lbl.Size = new System.Drawing.Size(157, 26);
             this.lbl.TabIndex = 5;
             this.lbl.Text = "People Count:";
             // 
@@ -55,9 +56,10 @@
             this.lbl_Count.AutoSize = true;
             this.lbl_Count.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Count.ForeColor = System.Drawing.Color.White;
-            this.lbl_Count.Location = new System.Drawing.Point(654, 812);
+            this.lbl_Count.Location = new System.Drawing.Point(490, 652);
+            this.lbl_Count.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Count.Name = "lbl_Count";
-            this.lbl_Count.Size = new System.Drawing.Size(49, 35);
+            this.lbl_Count.Size = new System.Drawing.Size(39, 29);
             this.lbl_Count.TabIndex = 6;
             this.lbl_Count.Text = "00";
             // 
@@ -67,8 +69,9 @@
             this.pb_goBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb_goBack.Image = ((System.Drawing.Image)(resources.GetObject("pb_goBack.Image")));
             this.pb_goBack.Location = new System.Drawing.Point(1, 2);
+            this.pb_goBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pb_goBack.Name = "pb_goBack";
-            this.pb_goBack.Size = new System.Drawing.Size(50, 50);
+            this.pb_goBack.Size = new System.Drawing.Size(38, 41);
             this.pb_goBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_goBack.TabIndex = 15;
             this.pb_goBack.TabStop = false;
@@ -78,9 +81,10 @@
             // 
             this.pB_Start.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pB_Start.Image = ((System.Drawing.Image)(resources.GetObject("pB_Start.Image")));
-            this.pB_Start.Location = new System.Drawing.Point(486, 12);
+            this.pB_Start.Location = new System.Drawing.Point(364, 10);
+            this.pB_Start.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pB_Start.Name = "pB_Start";
-            this.pB_Start.Size = new System.Drawing.Size(100, 50);
+            this.pB_Start.Size = new System.Drawing.Size(75, 41);
             this.pB_Start.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB_Start.TabIndex = 16;
             this.pB_Start.TabStop = false;
@@ -88,25 +92,27 @@
             // 
             // pB_Recognition
             // 
-            this.pB_Recognition.Location = new System.Drawing.Point(15, 68);
+            this.pB_Recognition.Location = new System.Drawing.Point(11, 55);
+            this.pB_Recognition.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pB_Recognition.Name = "pB_Recognition";
-            this.pB_Recognition.Size = new System.Drawing.Size(1080, 720);
+            this.pB_Recognition.Size = new System.Drawing.Size(810, 585);
             this.pB_Recognition.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pB_Recognition.TabIndex = 18;
             this.pB_Recognition.TabStop = false;
             // 
             // Recognition
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(1107, 863);
+            this.ClientSize = new System.Drawing.Size(830, 687);
             this.Controls.Add(this.pB_Recognition);
             this.Controls.Add(this.pB_Start);
             this.Controls.Add(this.pb_goBack);
             this.Controls.Add(this.lbl_Count);
             this.Controls.Add(this.lbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Recognition";
             this.Text = "Recognition";
             this.Load += new System.EventHandler(this.Recognition_Load);

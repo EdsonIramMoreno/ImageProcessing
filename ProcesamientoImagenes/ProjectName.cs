@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProcesamientoImagenes
 {
@@ -24,13 +27,11 @@ namespace ProcesamientoImagenes
             this.Height = this.Height + 50;
             this.Text = im.getImageName();
 
-            pB_Image.Image = im.getImage();
-
             if (im.isPhoto())
                 pB_Image.Image = im.getImage();
             else
             {
-                //pB_Image.Image = null;
+                pB_Image.Image = null;
                 btn_Export.Visible = false;
             }
             
@@ -70,6 +71,11 @@ namespace ProcesamientoImagenes
             }
 
                 
+        }
+
+        private void btn_Export_Click(object sender, EventArgs e)
+        {
+            Filters.exportImage(pB_Image.Image);
         }
     }
 }
