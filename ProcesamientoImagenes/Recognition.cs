@@ -1,8 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 using AForge.Video.DirectShow;
+using Emgu.CV;
+using Emgu.CV.Structure;
+using Emgu.CV.Face;
+using Emgu.CV.CvEnum;
+using System.IO;
 
 namespace ProcesamientoImagenes
 {
@@ -11,10 +22,16 @@ namespace ProcesamientoImagenes
         private bool isDevice;
         private FilterInfoCollection myDevices;
         private VideoCaptureDevice myWebCam;
+        static CascadeClassifier cascadeClassifier;
+
         public Recognition()
         {
             InitializeComponent();
-            
+            CheckForIllegalCrossThreadCalls = false;
+            var dir = Directory.GetCurrentDirectory();
+            dir = System.IO.Directory.GetParent(dir).FullName;
+            dir = System.IO.Directory.GetParent(dir).FullName;
+            cascadeClassifier = new CascadeClassifier(dir + "//haarcascade_frontalface_alt_tree.xml");
         }
 
         private void Recognition_Load(object sender, EventArgs e)
@@ -51,9 +68,27 @@ namespace ProcesamientoImagenes
             }
         }
 
+        
         private void capture(object seneder, NewFrameEventArgs eventArgs)
         {
             Bitmap image = (Bitmap)eventArgs.Frame.Clone();
+            Image<Bgr, byte> grayImage = new Image<Bgr, byte>(image);
+            Rectangle[] rectangles = cascadeClassifier.DetectMultiScale(grayImage, 1.2, 1);
+            lbl_Count.Text = rectangles.Length.ToString();
+
+            foreach (Rectangle rectangle in rectangles)
+            {
+
+                using (Graphics graphics = Graphics.FromImage(image))
+                {
+
+                    using (Pen pen = new Pen(Color.FromArgb(0, 255, 0), 5))
+                    {
+                        graphics.DrawRectangle(pen, rectangle);
+                    }
+                }
+            }
+
             pB_Recognition.Image = image;
         }
 
@@ -75,5 +110,6 @@ namespace ProcesamientoImagenes
 
             }
         }
+
     }
 }

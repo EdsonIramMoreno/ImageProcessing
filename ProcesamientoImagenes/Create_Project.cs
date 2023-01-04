@@ -87,14 +87,16 @@ namespace ProcesamientoImagenes
             if (im.isPhoto())
                 opDialog.Filter = "Image Files(*.BMP;*.JPG;*.PNG;*.JPEG)|*.BMP;*.JPG;*.PNG;*.JPEG;";
             else
-                opDialog.Filter = "Video Files(*.MP4;*.WMV;*.AVI)|*.MP4;*.WMV;*.AVI;";
+                opDialog.Filter = "Video Files(*.mp4)|*.mp4";
 
             if (opDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    if(im.isPhoto() || !im.isPhoto())
+                    if (im.isPhoto())
                         im.setImage(new Bitmap(opDialog.FileName));
+                    else
+                        im.setVideo(new Emgu.CV.VideoCapture(opDialog.FileName));
 
                     btn_Browse.BackColor = Color.Green;
                 }
@@ -112,7 +114,7 @@ namespace ProcesamientoImagenes
             {
                 var im = ImageManager.getInstance();
 
-                if (im.getImage() != null && tBox_ProjectName.Text != "")
+                if ((im.getImage() != null && im.isPhoto()) || (im.getVideo() != null && !im.isPhoto())  && tBox_ProjectName.Text != "")
                 {
                     im.setImageName(tBox_ProjectName.Text);
                     var f = new ProjectName();
