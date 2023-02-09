@@ -21,6 +21,7 @@ This was my final project of a 8th semester subject called Image Processing, as 
 
 ###### It also has a recognition feature:
 - Human Recognition
+
 ![image](https://user-images.githubusercontent.com/79424063/217418543-93be7157-f4af-449f-baa6-ead7c30415e1.png)
 
 ## Tech/Framework used
